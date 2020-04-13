@@ -1,0 +1,48 @@
+{
+  "name": "vue_node",
+  "version": "1.0.0",
+  "description": "手动搭建vue+node单页面",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "supervisor -w server,build,server.js -e js server",
+    "dev": "cross-env NODE_ENV=development supervisor -w server,build,server.js -e js,html server",
+    "pro": "cross-env NODE_ENV=production node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codecatdog/vue_node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codecatdog/vue_node/issues"
+  },
+  "homepage": "https://github.com/codecatdog/vue_node#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.2",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^4.2.0",
+    "sass-loader": "^8.0.2",
+    "swig": "^1.4.2",
+    "vue": "2.6.11",
+    "vue-loader": "^15.9.1",
+    "vue-router": "^3.1.6",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-hot-middleware": "^2.25.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cross-env": "^7.0.2",
+    "vue-resource": "^1.5.1"
+  }
+}
