@@ -20,7 +20,7 @@ app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', path.resolve(__dirname, './'));
 
-app.get('/', function(req, res) {
+app.get('/home', function(req, res) {
     res.type('text/html');
     res.render('index');
 });
