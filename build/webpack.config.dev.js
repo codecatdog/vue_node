@@ -7,6 +7,10 @@ const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true'
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
     mode: 'development',
     entry: {
@@ -42,7 +46,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.esm.js'
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': resolve('src')
         },
         extensions: ['*', '.js', '.vue', '.json']
     },

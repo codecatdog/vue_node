@@ -32,9 +32,9 @@ let ax = axios.create({
 
 function host() {
     if(window.location.hostname == 'localhost') {
-        return '/api/'
+        return '/device/'
     } else {
-        return '/api/'
+        return '/device/'
     }
 }
 
