@@ -43,6 +43,10 @@ module.exports = {
             loader: 'babel-loader',
             include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')],
             exclude: /node_modules/
+        },
+        {
+          test: /\.s[a|c]ss$/,
+          use: ['style-loader','css-loader','sass-loader']
         }, {
             test: /\.tsx?$/,
             exclude: /node_modules/,

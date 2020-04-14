@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="container">
     hello home~
     <router-view />
   </div>
@@ -36,5 +36,10 @@ export default class Home extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+#container {
+  width: 100%;
+  height: 100%;
+  background-color: beige;
+}
 </style>
