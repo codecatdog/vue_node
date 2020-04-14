@@ -14,7 +14,7 @@ function resolve (dir) {
 module.exports = {
     mode: 'development',
     entry: {
-        main: [path.resolve(__dirname, '../src/main.js'), hotMiddlewareScript]
+        main: [path.resolve(__dirname, '../src/main.ts'), hotMiddlewareScript]
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -41,7 +41,15 @@ module.exports = {
         }, {
             test: /\.js$/,
             loader: 'babel-loader',
+            include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')],
             exclude: /node_modules/
+        }, {
+            test: /\.tsx?$/,
+            exclude: /node_modules/,
+            loader: 'ts-loader',
+            options: {
+                transpileOnly: true
+            }
         }]
     },
     resolve: {
@@ -49,7 +57,7 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src')
         },
-        extensions: ['*', '.js', '.vue', '.json']
+        extensions: ['*', '.js', '.vue', '.json', '.ts']
     },
     devServer: {
         clientLogLevel: 'warning',

@@ -57,5 +57,37 @@ ax.interceptors.response.use(
           }
     }
 )
+/* 手动取消请求的不显示报错 */
+function handleError(err) {
+    // 如果是手动取消的请求，不显示错误信息
+    console.log("handleError1", err);
+  }
+/* GET  */
+export function Get<T = any>(url, params = {}): Promise<T> {
+    // `params`是要与请求一起发送的URL参数
+    // 必须是纯对象或URLSearchParams对象
+    return ax
+      .get(url, { params })
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        handleError(err);
+        throw err;
+      });
+  }
+
+  /* POST */
+export function Post<T = any>(url, data): Promise<T> {
+    return ax
+      .post(url, data)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        handleError(err);
+        throw err;
+      });
+  }
 
 export default ax;

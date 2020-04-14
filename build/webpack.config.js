@@ -9,7 +9,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     mode: 'production',
     entry: {
-        main: [path.resolve(__dirname, '../src/main.js')]
+        main: [path.resolve(__dirname, '../src/main.ts')]
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -39,6 +39,13 @@ module.exports = {
             test: /\.js$/,
             loader: 'babel-loader',
             exclude: /node_modules/
+        }, {
+            test: /\.tsx?$/,
+            exclude: /node_modules/,
+            loader: 'ts-loader',
+            options: {
+                transpileOnly: true
+            }
         }]
     },
     resolve: {
